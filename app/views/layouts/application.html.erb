@@ -45,8 +45,16 @@
             </li>
           </ul>
           <div class="d-flex align-items-center gap-3">
-            <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-primary" %>
-            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+            <% if user_signed_in? %>
+                <span class="fw-bold d-block">
+                  <%= current_user.name %>
+                </span>
+
+                <%= button_to "Sign Out", destroy_user_session_path, class: "btn btn-danger", method: :post %>
+            <% else %>
+              <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-primary" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
       </div>
