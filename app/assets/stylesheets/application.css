@@ -27,3 +27,8 @@ a.card {
 .recipes-details {
 	font-size: 1.3rem;
 }
+
+.shared-link a {
+
+	text-decoration: none;
+}
