@@ -1,0 +1,10 @@
+<%= turbo_frame_tag dom_id(food) do %>
+    <tr>
+        <th scope="row"><%= food.name %> </th>
+        <td><%= food.measurement_unit %></td>
+        <td><%= number_to_currency(food.price) %></td>
+        <td>
+            <%= button_to "Delete", food_path, method: :delete, class: "btn btn-link" %>
+        </td>
+    </tr>
+<% end %>
