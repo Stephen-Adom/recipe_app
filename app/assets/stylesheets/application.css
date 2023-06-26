@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.recipes-list {
+	margin-top: 30px;
+}
+
+.card {
+	cursor: pointer;
+	margin-bottom: 20px;
+}
