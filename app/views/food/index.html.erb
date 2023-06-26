@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between">
+        <h1 class="text-center display-4">Food List</h1>
+
+        <%= link_to "Add Food", new_food_path, class: "btn btn-primary", type: "button" %>
+    </div>
+
+    <div class="food-list mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Food</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>
+                            <button type="button" class="btn btn-link">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+        </div>
+</div>

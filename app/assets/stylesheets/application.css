@@ -18,7 +18,12 @@
 	margin-top: 30px;
 }
 
-.card {
-	cursor: pointer;
+a.card {
+	text-decoration: none;
 	margin-bottom: 20px;
+	color: rgba(0, 0, 0, 0.9);
+}
+
+.recipes-details {
+	font-size: 1.3rem;
 }
