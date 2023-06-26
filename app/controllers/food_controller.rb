@@ -19,6 +19,13 @@ class FoodController < ApplicationController
     end
   end
 
+  def destroy
+    @food = Food.find(params[:id])
+    @food.destroy
+
+    render turbo_stream: turbo_stream.remove(@food)
+  end
+
   private
 
   def food_params
