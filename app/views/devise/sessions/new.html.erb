@@ -1,4 +1,4 @@
-<div class="p-5">
+<div class="container mx-auto w-50">
   <h2>Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -7,14 +7,14 @@
       <%= f.email_field :email,
                     autofocus: true,
                     autocomplete: "email",
-                    class: "form-control w-75" %>
+                    class: "form-control" %>
     </div>
 
     <div class="field mb-3">
       <%= f.label :password, class: "form-label" %><br/>
       <%= f.password_field :password,
                        autocomplete: "current-password",
-                       class: "form-control w-75" %>
+                       class: "form-control" %>
     </div>
 
     <% if devise_mapping.rememberable? %>
@@ -25,7 +25,7 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-primary" %>
+      <%= f.submit "Log in", class: "btn btn-primary btn-lg" %>
     </div>
   <% end %>
 
