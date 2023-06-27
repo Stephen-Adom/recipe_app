@@ -19,16 +19,40 @@ class FoodController < ApplicationController
     end
   end
 
+  def edit
+    @food = Food.find(params[:id])
+  end
+
+  def update
+    @food = Food.find(params[:id])
+
+    respond_to do |format|
+      if @food.update(food_params)
+        format.html { redirect_to food_index_path, notice: 'Food was successfully updated.' }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def destroy
     @food = Food.find(params[:id])
-    @food.destroy
 
-    render turbo_stream: turbo_stream.remove(@food)
+    respond_to do |format|
+      if @food.destroy
+        format.turbo_stream { flash.now[:notice] = 'Food was successfully destroyed.' }
+
+      else
+        render :index
+      end
+    end
   end
 
   private
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity).each do |key, value|
+      params[:food][key] = value.strip if value.is_a?(String)
+    end
   end
 end
