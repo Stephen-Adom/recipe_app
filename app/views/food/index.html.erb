@@ -6,25 +6,28 @@
     </div>
 
     <div class="food-list mt-4">
+        <% if @foods.any? %>
             <table class="table">
                 <thead>
                     <tr>
                     <th scope="col">Food</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Value</th>
+                    <th scope="col">Measurement Unit</th>
+                    <th scope="col">Unit Price</th>
                     <th scope="col">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <button type="button" class="btn btn-link">Delete</button>
-                        </td>
-                    </tr>
+                    <% @foods.each do |food|%>
+                        <%= render 'shared/food_item', food: food%>
+                    <% end %>
                 </tbody>
                 </table>
+
+        <% else %>
+            <div class="alert alert-info" role="alert">
+                No Food Available!!!
+            </div>
+
+        <% end %>
         </div>
 </div>
