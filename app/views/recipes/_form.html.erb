@@ -1,23 +1,41 @@
-<%=  form_with model: [@user, @recipe], class: "m-lg-4 m-sm-2" do |form| %>
-  <% if @recipe.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
-      <ul>
-        <% @recipe.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="mb-3">
-    <%= form.label :Name, class: "form-label" %>
-    <%= form.text_field :name, class: "form-control" %>
+<%= form_with(model:recipe, url: url, method: method, class: 'w-50 mx-auto') do |form| %>
+  <div class="form-group mb-3">
+    <%= form.label :name, class: "form-label mb-2" %>
+    <%= form.text_field :name,
+                    class:
+                      "form-control form-control-lg #{field_error(form.object.errors, :name)}" %>
+    <%= render "shared/form_error_display", errors: form.object.errors, field: :name %>
   </div>
-  <div class="mb-3">
-    <%= form.label :Description, class: "form-label" %>
-    <%= form.text_area :description, class: "form-control", rows: "10", style: "height:100%" %>
+
+  <div class="form-group mb-3">
+    <%= form.label :Description, class: "form-label mb-2" %>
+    <%= form.text_area :description,
+                   class:
+                     "form-control form-control-lg #{field_error(form.object.errors, :description)}" %>
+    <%= render "shared/form_error_display", errors: form.object.errors, field: :name %>
   </div>
-  <div class="mb-3">
-    <%=form.submit "Create", disable_with: 'Creatinging...', class: 'btn btn-dark fs-3' %>
+
+  <div class="form-group mb-3">
+    <%= form.label :cooking_time, class: "form-label mb-2" %>
+    <%= form.number_field :cooking_time,
+                      class: "form-control form-control-lg #{field_error(form.object.errors, :cooking_time)}" %>
+    <%= render "shared/form_error_display",
+    errors: form.object.errors,
+    field: :cooking_time %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :preparation_time, class: "form-label mb-2" %>
+    <%= form.number_field :preparation_time,
+                      class: "form-control form-control-lg #{field_error(form.object.errors, :preparation_time)}" %>
+    <%= render "shared/form_error_display",
+    errors: form.object.errors,
+    field: :preparation_time %>
+  </div>
+
+  <div class="form-group mt-4">
+    <%= form.submit function,
+                disable_with: "#{function}ing...",
+                class: "btn btn-primary btn-lg btn-block w-100" %>
   </div>
 <% end %>

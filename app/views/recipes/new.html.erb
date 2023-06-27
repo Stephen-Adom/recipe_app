@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between w-50 mx-auto">
+         <h1 class="text-center display-4">Add Recipe</h1>
+
+        <%= link_to 'Back', recipes_path, class: "btn btn-secondary", type: "button"%>
+    </div>
+
+    <%= render 'form', recipe: @recipe, url: recipes_path, method: :post, function: "create" %>
+</div>
