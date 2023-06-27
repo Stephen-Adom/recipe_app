@@ -35,13 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%= link_to "All Recipes", root_path, class: "nav-link #{set_nav_active(root_path)}", "aria-current": "page"%>
+              <%= link_to "All Recipes", root_path, class: "nav-link #{nav_active(root_path)}", "aria-current": "page"%>
             </li>
             <li class="nav-item">
-              <%= link_to "My Recipes", recipes_path, class: "nav-link #{set_nav_active(recipes_path)}"%>
+              <%= link_to "My Recipes", recipes_path, class: "nav-link #{nav_active(recipes_path)}"%>
             </li>
             <li class="nav-item">
-              <%= link_to "Food List", food_index_path, class: "nav-link #{set_nav_active(food_index_path)} "%>
+              <%= link_to "Food List", food_index_path, class: "nav-link #{nav_active(food_index_path)} "%>
             </li>
           </ul>
           <div class="d-flex align-items-center gap-3">
