@@ -16,52 +16,47 @@
 
 a,
 .btn-link {
-	text-decoration: none !important;
+  text-decoration: none !important;
 }
 
 .recipes-list {
-	margin-top: 30px;
-	margin-top: 30px;
+  margin-top: 30px;
 }
 
 a.card {
-	text-decoration: none;
-	margin-bottom: 20px;
-	color: rgba(0, 0, 0, 0.9);
-	text-decoration: none;
-	margin-bottom: 20px;
-	color: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .recipes-details {
-	font-size: 1.3rem;
-	font-size: 1.3rem;
+  font-size: 1.3rem;
 }
 
 .shared-link a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 select {
-	display: block;
-	width: 100%;
-	font-weight: 400;
-	line-height: 1.5;
-	color: #212529;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid #ced4da;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-	min-height: calc(1.5em + (1rem + 2px));
-	padding: 0.5rem 1rem;
-	font-size: 1.25rem;
-	border-radius: 0.3rem;
+  display: block;
+  width: 100%;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  min-height: calc(1.5em + (1rem + 2px));
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
 }
 
 td,
 th {
-	vertical-align: middle;
+  vertical-align: middle;
 }
