@@ -73,4 +73,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem "erb-formatter", "~> 0.4.3"
+gem 'erb-formatter', '~> 0.4.3'
+
+gem 'devise', '~> 4.9'
