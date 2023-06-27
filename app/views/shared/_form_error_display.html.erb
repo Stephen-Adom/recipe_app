@@ -1,0 +1,7 @@
+<div class="feedback text-danger">
+    <% if errors[field].present?%>
+        <% errors.full_messages_for(field).each do |message|%>
+            <span class="d-block"><%= message %> </span>
+        <% end %>
+    <% end %>
+</div>

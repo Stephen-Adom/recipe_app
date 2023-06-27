@@ -35,20 +35,13 @@
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <%= link_to "All Recipes",
-              root_path,
-              class: "nav-link #{set_nav_active(root_path)}",
-              "aria-current": "page" %>
+              <%= link_to "All Recipes", root_path, class: "nav-link #{nav_active(root_path)}", "aria-current": "page"%>
             </li>
             <li class="nav-item">
-              <%= link_to "My Recipes",
-              recipes_path,
-              class: "nav-link #{set_nav_active(recipes_path)}" %>
+              <%= link_to "My Recipes", recipes_path, class: "nav-link #{nav_active(recipes_path)}"%>
             </li>
             <li class="nav-item">
-              <%= link_to "Food List",
-              food_index_path,
-              class: "nav-link #{set_nav_active(food_index_path)} " %>
+              <%= link_to "Food List", food_index_path, class: "nav-link #{nav_active(food_index_path)} "%>
             </li>
           </ul>
           <div class="d-flex align-items-center gap-3">
@@ -71,10 +64,7 @@
                 </div>
               </span>
 
-              <%= button_to "Sign Out",
-              destroy_user_session_path,
-              class: "btn btn-danger",
-              method: :delete %>
+                <%= button_to "Sign Out", destroy_user_session_path, class: "btn btn-danger", method: :delete %>
             <% else %>
               <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-primary" %>
               <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
@@ -83,8 +73,9 @@
         </div>
       </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+<%= render "shared/flash_messages"%>
+
     <%= yield %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"

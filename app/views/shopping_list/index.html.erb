@@ -1,1 +1,49 @@
-sdfdf
+    <div class="d-flex align-items center justify-content-between w-50 mx-auto mb-4">
+        <h1 class="text-center display-4">Shopping List</h1>
+
+        <div class="d-flex align-items-center">
+            <%= link_to "Back", :back , class: "btn btn-secondary", type: "button"%>
+        </div>
+    </div>
+
+    <div class="recipes-details w-50 mx-auto">
+        <div class="d-flex align-items-start justify-content-between">
+            <div>
+                <p>Amount of food to buy: 1</p>
+                <p>Total value of food needed: $1.5</p>
+            </div>
+
+            <div>
+                <p>Recipe: <%= link_to "Recipe 1", recipe_shopping_list_index_path(recipe_id: 1), class: "btn btn-link", type: "button" %> </p>
+            </div>
+        </div>
+        
+        <div class="ingredient-list mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Food</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    </tr>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    </tr>
+                </tbody>
+                </table>
+        </div>
+
+    </div>
