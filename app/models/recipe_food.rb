@@ -4,5 +4,6 @@ class RecipeFood < ApplicationRecord
   belongs_to :food
 
   # Validations
-  validates :quantity, numericality: { greater_than: 0, less_then: 5 }
+  validates :food_id, presence: true
+  validates :quantity, presence: true, numericality: true
 end

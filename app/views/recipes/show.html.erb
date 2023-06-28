@@ -24,7 +24,8 @@
 
         <div class="d-flex align-items-center justify-content-between mt-4">
             <%= link_to "Generate shopping list", recipe_shopping_list_index_path(@recipe), class: "btn btn-secondary", type: "button"%>
-            <button type="button" class="btn btn-primary">Add Ingredient</button>
+
+            <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "btn btn-primary", type: "button"%>
         </div>
 
         <div class="ingredient-list mt-4">
