@@ -36,7 +36,6 @@ class RecipeFoodsController < ApplicationController
   end
 
   def destroy
-    puts params
     @recipe_food = RecipeFood.find(params[:id])
 
     respond_to do |format|

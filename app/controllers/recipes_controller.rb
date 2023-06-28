@@ -40,7 +40,15 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
+
+    respond_to do |format|
+      if @recipe.destroy
+        format.turbo_stream { flash.now[:notice] = 'Recipe was successfully destroyed.' }
+
+      else
+        render :index
+      end
+    end
   end
 
   private

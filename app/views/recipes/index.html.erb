@@ -9,7 +9,7 @@
 
 <% @recipes.each do |recipe| %>
 
-  <div class="container w-50 mx-auto w-">
+  <div class="container w-50 mx-auto w-" id="<%= dom_id(recipe) %>">
     <div class="card mb-3">
       <div class="card-header bg-secondary text-light">
         Recipe
@@ -17,12 +17,9 @@
       <div class="row g-0">
         <div class="col-md-4 p-2">
           <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
-          <span
-            class="badge bg-danger fs-5 cursor"
-            data-bs-toggle="modal"
-            data-bs-target="#confirm"
-          >Remove</span>
-          <%= render "shared/model_confim", title: recipe.name, path: recipe_path(recipe) %>
+          
+          <%= button_to "Remove", recipe_path(recipe), method: :delete, class: "btn btn-danger"%>
+
         </div>
         <%= link_to recipe_path(recipe), class: "link-card col-md-8 p-2" do %>
 

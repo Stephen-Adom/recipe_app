@@ -1,7 +1,7 @@
 class Recipe < ApplicationRecord
   # association
   belongs_to :user
-  has_many :recipe_foods
+  has_many :recipe_foods, dependent: :destroy
   has_many :foods, through: :recipe_foods
 
   # validation
@@ -21,10 +21,9 @@ class Recipe < ApplicationRecord
 
       shopping_list << {
         **food.attributes,
-        quantity: recipe_food.quantity - food.quantity
+        'quantity' => recipe_food.quantity - food.quantity
       }
     end
-
     shopping_list
   end
 end
