@@ -10,7 +10,7 @@ export default class extends Controller {
 		const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 		const csrfParam = document.querySelector('meta[name="csrf-param"]').getAttribute("content");
 
-		fetch(`/recipes/${this.element.value}`, {
+		fetch(`/recipes/${this.element.id}`, {
 			method: "PATCH",
 			headers: {
 				Accept: "text/vnd.turbo-stream.html",

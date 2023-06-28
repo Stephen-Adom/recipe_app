@@ -16,7 +16,7 @@
 
             <div class="form-check form-switch">
                 <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch, id: "toggle_public") do |form|%>
-                    <%= form.check_box :public, class: "form-check-input", id: "flexSwitchCheckDefault", role: "switch", "data-controller":"set-public-recipe" %>
+                    <%= form.check_box :public, class: "form-check-input", id: @recipe.id, role: "switch", "data-controller":"set-public-recipe" %>
                     <%= form.label :public, for:"flexSwitchCheckDefault", class:"form-check-label"%>
                 <% end %>
             </div>
