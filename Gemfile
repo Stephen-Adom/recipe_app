@@ -77,4 +77,4 @@ gem 'erb-formatter', '~> 0.4.3'
 
 gem 'devise', '~> 4.9'
 
-gem "cancancan", "~> 3.5"
+gem 'cancancan', '~> 3.5'
