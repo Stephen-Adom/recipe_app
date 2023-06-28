@@ -1,1 +1,38 @@
-<%= link_to "new recipe", new_recipe_path, class: "btn btn-primary" %>
+<div class="text-center my-3">
+  <%= link_to "new recipe", new_recipe_path, class: "btn btn-primary" %>
+</div>
+
+<% @recipes.each do |recipe| %>
+  <%= link_to recipe_path(recipe), class: "link-card" do %>
+    <div class="container mx-auto">
+      <div class="card mb-3">
+        <div class="card-header bg-secondary text-light">
+          Recipe
+        </div>
+        <div class="row g-0">
+          <div class="col-md-4 p-2">
+            <h3><%= recipe.name %></h3>
+            <div class="d-flex gap-2">
+              <span
+                class="badge bg-danger fs-5"
+                data-bs-toggle="modal"
+                data-bs-target="#confirm"
+              >Remove</span>
+              <%= render "form", title: recipe.name, path: recipe_path(recipe) %>
+            </div>
+          </div>
+          <div class="col-md-8 p-2">
+            <div class="card-body">
+              <p class="card-text"><%= recipe.description %></p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <p class="card-text"><small class="text-muted"><%= time_ago_in_words(recipe.created_at) %>
+              ago</small></p>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
