@@ -29,6 +29,15 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    respond_to do |format|
+      if @recipe.update(public: params.require(:recipe)[:public])
+        format.turbo_stream { flash.now[:notice] = 'Recipe was successfully updated.' }
+      end
+    end
+  end
+
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
