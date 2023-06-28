@@ -64,3 +64,7 @@ th {
 .remove {
   border: none;
 }
+
+.cursor {
+  cursor: pointer;
+}

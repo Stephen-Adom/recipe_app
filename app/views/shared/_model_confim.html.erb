@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,11 +7,11 @@
       </div>
       <div class="modal-body">
         <h5>Are you sure want to Remove 😟😟😟</h5>
-        <p>this <%= title %></p>
+        <p>t<%= title %></p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <%= button_to "Remove", path, method: :delete %>
+        <%= button_to "Remove", path, method: :delete, class: "btn btn-danger" %>
       </div>
     </div>
   </div>
