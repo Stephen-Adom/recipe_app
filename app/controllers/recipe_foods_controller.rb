@@ -20,6 +20,17 @@ class RecipeFoodsController < ApplicationController
     end
   end
 
+  def destroy
+    puts params
+    @recipe_food = RecipeFood.find(params[:id])
+
+    respond_to do |format|
+      format.turbo_stream { flash.now[:notice] = 'Recipe Food was successfully destroyed.' } if @recipe_food.destroy
+    end
+  end
+
+  private
+
   def recipe_food_params
     params.require(:recipe_food).permit(:food_id, :quantity)
   end
