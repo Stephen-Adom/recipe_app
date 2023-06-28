@@ -60,3 +60,11 @@ td,
 th {
   vertical-align: middle;
 }
+
+.remove {
+  border: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
