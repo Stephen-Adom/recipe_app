@@ -2,11 +2,13 @@
     <th scope="row"><%= recipe_food.food.name %> </th>
     <td><%= recipe_food.quantity %></td>
     <td><%= recipe_food.food.price %></td>
-    <%  if can? [:update, :destroy], recipe %>
-        <td class="d-flex align-items-center gap-2"> 
+    <td class="d-flex align-items-center gap-2"> 
+        <%  if can? :update, recipe %>
             <%= link_to "Update", edit_recipe_recipe_food_path(recipe, recipe_food), class: "btn btn-link" %>
+        <% end %>
 
+        <%  if can? :destroy, recipe %>
             <%= button_to "Delete", recipe_recipe_food_path(recipe, recipe_food), method: :delete, class: "btn btn-link" %>
-        </td>
-    <% end %>
+        <% end %>
+    </td>
 </tr>
