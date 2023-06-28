@@ -28,7 +28,8 @@
             <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "btn btn-primary", type: "button"%>
         </div>
 
-        <div class="ingredient-list mt-4">
+        <% if @recipe.recipe_foods.any? %>
+                    <div class="ingredient-list mt-4">
             <table class="table">
                 <thead>
                     <tr>
@@ -39,26 +40,15 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    </tr>
-                    <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    </tr>
+                    <% @recipe.recipe_foods.each do |recipe_food|%>
+                        <%= render "shared/recipe_food_item", recipe_food: recipe_food, recipe: @recipe %>
+                    <% end %>
                 </tbody>
                 </table>
         </div>
+        <% else %>
+
+        <% end %>
 
     </div>
 </div>
