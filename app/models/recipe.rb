@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   # association
   belongs_to :user
+  has_many :recipe_food
 
   # validation
   validates :name, presence: true
