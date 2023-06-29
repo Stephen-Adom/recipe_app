@@ -7,8 +7,8 @@ class Recipe < ApplicationRecord
   # validation
   validates :name, presence: true
   validates :description, presence: true
-  validates :preparation_time, presence: true, numericality: { greater_than: 0 }
-  validates :cooking_time, presence: true, numericality: { greater_than: 0 }
+  validates :preparation_time, presence: true, numericality: { greater_than: 0, less_than_eq_to: 5 }
+  validates :cooking_time, presence: true, numericality: { greater_than: 0, less_than_eq_to: 5 }
 
   def shopping_list(current_user)
     shopping_list = []

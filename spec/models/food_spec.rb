@@ -23,7 +23,7 @@ RSpec.describe Food, type: :model do
     expect { @food.reload }.to raise_error(ActiveRecord::RecordNotFound)
   end
 
-  describe "food validation" do 
+  describe "model food validation" do 
     
     it "name should not be null" do
       @food.name = ''
