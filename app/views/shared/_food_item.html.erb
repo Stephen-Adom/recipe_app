@@ -1,6 +1,7 @@
 <tr id="<%= dom_id(food) %>">
     <th scope="row"><%= food.name %> </th>
     <td><%= food.measurement_unit %></td>
+    <td><%= food.quantity %></td>
     <td><%= number_to_currency(food.price) %></td>
     <td class="d-flex align-items-center gap-1">
         <%= link_to "Update", edit_food_path(food), class: "btn btn-link" %>

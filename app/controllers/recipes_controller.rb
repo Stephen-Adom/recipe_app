@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.includes(:user).all
+    @recipes = Recipe.includes(:user).all.where(user_id: current_user.id).order(created_at: :desc)
   end
 
   def new
@@ -26,12 +26,29 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe = Recipe.includes(recipe_foods: :food).find(params[:id])
+  end
+
+  def update
     @recipe = Recipe.find(params[:id])
+    respond_to do |format|
+      if @recipe.update(public: params.require(:recipe)[:public])
+        format.turbo_stream { flash.now[:notice] = 'Recipe was successfully updated.' }
+      end
+    end
   end
 
   def destroy
     @recipe = Recipe.find(params[:id])
-    @recipe.destroy
+
+    respond_to do |format|
+      if @recipe.destroy
+        format.turbo_stream { flash.now[:notice] = 'Recipe was successfully destroyed.' }
+
+      else
+        render :index
+      end
+    end
   end
 
   private

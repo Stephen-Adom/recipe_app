@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between w-50 mx-auto">
+         <h1 class="text-center display-4">Edit Food To Recipe</h1>
+
+        <%= link_to 'Back', :back, class: "btn btn-secondary", type: "button"%>
+    </div>
+
+    <%= render "shared/recipe_food_form", recipe_food: @recipe_food, url: recipe_recipe_food_path, method: :patch, label: "Update Food To Recipe"%>
+</div>

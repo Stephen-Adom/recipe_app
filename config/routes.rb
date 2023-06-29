@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   # root "articles#index"
   root to: "user#index"
 
-  resources :recipes, only: [:index, :new, :create, :show, :destroy] do
+  resources :recipes do
     resources :shopping_list, only: [:index]
+    resources :recipe_foods
   end
   resources :food
 end
