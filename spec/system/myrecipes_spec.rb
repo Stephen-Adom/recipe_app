@@ -1,4 +1,4 @@
-require 'rails_helper' 
+require 'rails_helper'
 RSpec.describe 'Myrecipes', type: :system do
   before do
     data
@@ -22,7 +22,7 @@ RSpec.describe 'Myrecipes', type: :system do
     expect(page).to have_content('Generate shopping list')
   end
 
-  it "Ingredients can be added in Recipe" do 
+  it 'Ingredients can be added in Recipe' do
     visit root_path
     fill_in 'Email', with: 'Adarsh.pathak@example.com'
     fill_in 'Password', with: '123456'
@@ -31,14 +31,14 @@ RSpec.describe 'Myrecipes', type: :system do
     click_link 'Dosa'
     click_link 'Add Ingredient'
     expect(page).to have_content('Add Food To Recipe')
-    page.select "apple", from: "Food"
+    page.select 'apple', from: 'Food'
     fill_in 'Quantity', with: 4
     click_button 'Add Food To Recipe'
     expect(page).to have_content('apple')
     expect(page).to have_content(4)
   end
 
-  it "should genrate the shoping list" do 
+  it 'should genrate the shoping list' do
     visit root_path
     fill_in 'Email', with: 'Adarsh.pathak@example.com'
     fill_in 'Password', with: '123456'
@@ -49,7 +49,7 @@ RSpec.describe 'Myrecipes', type: :system do
     expect(page).to have_content('orange')
   end
 
-  it "Public Recipe should be visible" do 
+  it 'Public Recipe should be visible' do
     visit root_path
     fill_in 'Email', with: 'Stephen.Adom@example.com'
     fill_in 'Password', with: '123456'
@@ -61,7 +61,7 @@ RSpec.describe 'Myrecipes', type: :system do
     expect(page).to have_content('Stephen')
   end
 
-  it "User Can make Recipe Public" do 
+  it 'User Can make Recipe Public' do
     visit root_path
     fill_in 'Email', with: 'Stephen.Adom@example.com'
     fill_in 'Password', with: '123456'
@@ -73,7 +73,7 @@ RSpec.describe 'Myrecipes', type: :system do
     expect(page).to have_content('Stephen')
   end
 
-  it "User can remove Own Recipe" do
+  it 'User can remove Own Recipe' do
     visit root_path
     fill_in 'Email', with: 'Stephen.Adom@example.com'
     fill_in 'Password', with: '123456'

@@ -16,14 +16,16 @@ def data
                           user_id: @user_two.id)
   @recipe_one = Recipe.create(name: 'paratha', preparation_time: 2, cooking_time: 2, description: 'anything we want',
                               user_id: @user_one.id)
-  @recipe_two = Recipe.create(name: 'juice', preparation_time: 2, cooking_time: 2, description: 'anything we want', public: true,
+  @recipe_two = Recipe.create(name: 'juice', preparation_time: 2, cooking_time: 2, description: 'anything we want',
+                              public: true,
                               user_id: @user_one.id)
-  @recipe_three = Recipe.create(name: 'Dosa', preparation_time: 2, cooking_time: 2, description: 'anything we want', public: true,
-                              user_id: @user_one.id)
+  @recipe_three = Recipe.create(name: 'Dosa', preparation_time: 2, cooking_time: 2, description: 'anything we want',
+                                public: true,
+                                user_id: @user_one.id)
   @recipe_four = Recipe.create(name: 'Icecream', preparation_time: 2, cooking_time: 2, public: true,
-                              description: 'anything we want', user_id: @user_two.id)
+                               description: 'anything we want', user_id: @user_two.id)
   @recipe_five = Recipe.create(name: 'soda', preparation_time: 2, cooking_time: 2, description: 'anything we want',
-                              user_id: @user_two.id)
+                               user_id: @user_two.id)
   @recipe_six = Recipe.create(name: 'roka', preparation_time: 2, cooking_time: 2, description: 'anything we want',
                               user_id: @user_two.id)
   @recipe_food = RecipeFood.create(food_id: @food_two.id, recipe_id: @recipe_two.id, quantity: 15)
