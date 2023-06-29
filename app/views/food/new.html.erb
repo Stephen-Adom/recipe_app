@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between w-50 mx-auto">
+         <h1 class="text-center display-4">Add Food</h1>
+
+        <%= link_to 'Back', :food_index, class: "btn btn-secondary", type: "button"%>
+    </div>
+
+    <%= render 'shared/food_form', food: @food, url: :food_index, method: :post, button_label: 'Add Food'%>
+</div>

@@ -1,0 +1,62 @@
+<div class="container" id="<%= dom_id(@recipe) %>">
+    <div class="d-flex align-items center justify-content-between w-75 mx-auto mb-4">
+        <h1 class="text-center display-4"><%= @recipe.name %></h1>
+
+        <div class="d-flex align-items-center">
+            <%= link_to "Back", :back , class: "btn btn-secondary", type: "button"%>
+        </div>
+    </div>
+
+    <div class="recipes-details w-75 mx-auto">
+        <div class="d-flex align-items-start justify-content-between">
+            <div>
+                <p>Preparation time: <%= @recipe.preparation_time %> hour</p>
+                <p>Cooking time: <%= @recipe.cooking_time %> hour</p>
+            </div>
+
+            <% if can? :update, @recipe %>
+                <div class="form-check form-switch">
+                    <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch, id: "toggle_public") do |form|%>
+                        <%= form.check_box :public, class: "form-check-input", id: @recipe.id, role: "switch", "data-controller":"set-public-recipe" %>
+                        <%= form.label :public, for: @recipe.id, class:"form-check-label"%>
+                    <% end %>
+                </div>
+            <% end %>
+        </div>
+
+        <div class="d-flex align-items-center justify-content-between mt-4">
+            <% if can? :read, @recipe %>
+                <%= link_to "Generate shopping list", recipe_shopping_list_index_path(@recipe), class: "btn btn-secondary", type: "button"%>
+            <% end %>
+
+            <% if can? :update, @recipe %>
+                <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: "btn btn-primary", type: "button"%>
+            <% end %>
+        </div>
+
+        <% if @recipe.recipe_foods.any? %>
+                    <div class="ingredient-list mt-4 w-75 mx-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">Food</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Value</th>
+                    <%  if can? :update, @recipe %>
+                        <th scope="col">Actions</th>
+                    <% end %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% @recipe.recipe_foods.each do |recipe_food|%>
+                        <%= render "shared/recipe_food_item", recipe_food: recipe_food, recipe: @recipe %>
+                    <% end %>
+                </tbody>
+                </table>
+        </div>
+        <% else %>
+
+        <% end %>
+
+    </div>
+</div>

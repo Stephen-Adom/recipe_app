@@ -1,0 +1,14 @@
+<tr id="<%= dom_id(recipe_food) %>">
+    <th scope="row"><%= recipe_food.food.name %> </th>
+    <td><%= "#{recipe_food.quantity} #{recipe_food.food.measurement_unit}" %></td>
+    <td><%= recipe_food.food.price %></td>
+    <td class="d-flex align-items-center gap-2"> 
+        <%  if can? :update, recipe %>
+            <%= link_to "Update", edit_recipe_recipe_food_path(recipe, recipe_food), class: "btn btn-link" %>
+        <% end %>
+
+        <%  if can? :destroy, recipe %>
+            <%= button_to "Delete", recipe_recipe_food_path(recipe, recipe_food), method: :delete, class: "btn btn-link" %>
+        <% end %>
+    </td>
+</tr>

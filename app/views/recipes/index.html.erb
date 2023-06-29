@@ -1,0 +1,40 @@
+<div class="d-flex align-items center justify-content-between w-50 mx-auto mb-4">
+        <h1 class="text-center display-4">My Recipes</h1>
+
+        <div class="d-flex align-items-center gap-3">
+            <%= link_to "Add Recipe", new_recipe_path(current_user), class: "btn btn-primary" %>
+            <%= link_to "Back", :back , class: "btn btn-secondary", type: "button"%>
+        </div>
+  </div>
+
+<% @recipes.each do |recipe| %>
+
+  <div class="container w-50 mx-auto w-" id="<%= dom_id(recipe) %>">
+    <div class="card mb-3">
+      <div class="card-header bg-secondary text-light">
+        Recipe
+      </div>
+      <div class="row g-0">
+        <div class="col-md-4 p-2">
+          <h3><%= link_to recipe.name, recipe_path(recipe) %></h3>
+          
+          <%= button_to "Remove", recipe_path(recipe), method: :delete, class: "btn btn-danger"%>
+
+        </div>
+        <%= link_to recipe_path(recipe), class: "link-card col-md-8 p-2" do %>
+
+          <div class="card-body">
+            <p class="card-text"><%= recipe.description %></p>
+          </div>
+
+        <% end %>
+      </div>
+      <div class="card-footer">
+        <p class="card-text"><small class="text-muted"><%= time_ago_in_words(recipe.created_at) %>
+            ago</small></p>
+
+      </div>
+    </div>
+  </div>
+
+<% end %>

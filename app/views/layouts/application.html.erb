@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Recipe App</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    >
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
+      <div class="container">
+        <a class="navbar-brand" href="#">Recipe App</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to "All Recipes", root_path, class: "nav-link #{nav_active(root_path)}", "aria-current": "page"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "My Recipes", recipes_path, class: "nav-link #{nav_active(recipes_path)}"%>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Food List", food_index_path, class: "nav-link #{nav_active(food_index_path)} "%>
+            </li>
+          </ul>
+          <div class="d-flex align-items-center gap-3">
+            <% if user_signed_in? %>
+              <span class="fw-bold d-block">
+                <div class="dropdown">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <%= current_user.name %>
+                  </button>
+                </div>
+              </span>
+
+                <%= button_to "Sign Out", destroy_user_session_path, class: "btn btn-danger", method: :delete %>
+            <% else %>
+              <%= link_to "Sign In", new_user_session_path, class: "btn btn-outline-primary" %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+<%= render "shared/flash_messages"%>
+
+    <%= yield %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

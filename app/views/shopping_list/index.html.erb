@@ -1,0 +1,50 @@
+    <div class="d-flex align-items center justify-content-between w-50 mx-auto mb-4">
+        <h1 class="text-center display-4">Shopping List</h1>
+
+        <div class="d-flex align-items-center">
+            <%= link_to "Back", :back , class: "btn btn-secondary", type: "button"%>
+        </div>
+    </div>
+
+    <% if @shopping_list && @shopping_list.any? %>
+        <div class="recipes-details w-50 mx-auto">
+            <div class="d-flex align-items-start justify-content-between">
+                <div>
+                    <p>Total of food to buy: <%= @shopping_list.length %> </p>
+                    <p>Total value of food needed: <%= @shopping_list.any? ? number_to_currency(total_price(@shopping_list)) : 0 %></p>
+                </div>
+
+                <div>
+                    <p>Recipe: <%= link_to @recipe.name, recipe_path(@recipe), class: "btn btn-link", type: "button" %> </p>
+                </div>
+            </div>
+
+                        <div class="ingredient-list mt-4">
+        <table class="table">
+            <thead>
+                <tr>
+                <th scope="col">Food</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @shopping_list.each do |food| %>
+                    <tr>
+                        <th scope="row"> <%= food["name"] %> </th>
+                        <td><%= food["quantity"] %></td>
+                        <td> <%= number_to_currency(food["price"]) %> </td>
+                    </tr>
+                <% end %>
+
+            </tbody>
+            </table>
+        </div>
+
+        </div>
+
+    <% else %>
+        <div class="alert alert-info w-50 mx-auto" role="alert">
+            No Shoppings List for <span class="fw-bold"><%= @recipe.name %></span>
+        </div>
+    <% end %>
