@@ -23,7 +23,6 @@ RSpec.describe Recipe, type: :model do
     expect { @recipe.reload }.to raise_error(ActiveRecord::RecordNotFound)
   end
 
-
   it 'Should have association with user' do
     expect(@recipe.user_id).to eq(@user.id)
   end
