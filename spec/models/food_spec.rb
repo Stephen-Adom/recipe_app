@@ -23,6 +23,10 @@ RSpec.describe Food, type: :model do
     expect { @food.reload }.to raise_error(ActiveRecord::RecordNotFound)
   end
 
+  it "Should have association with User" do 
+    expect(@food.user_id).to eq(@user.id)
+  end
+
   describe "model food validation" do 
     
     it "name should not be null" do
