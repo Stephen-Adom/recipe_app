@@ -7,7 +7,6 @@ RSpec.describe Food, type: :model do
   end
 
   after :all do
-    @food.destroy
     @user.destroy
   end
 

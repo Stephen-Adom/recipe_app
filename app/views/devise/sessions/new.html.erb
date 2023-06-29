@@ -25,7 +25,10 @@
     <% end %>
 
     <div class="actions">
-      <%= f.submit "Log in", class: "btn btn-primary btn-lg" %>
+      <%= f.submit "Log In",
+               class: "btn btn-primary btn-lg",
+               disable_with: "Logging in..." %>
+
     </div>
   <% end %>
 
