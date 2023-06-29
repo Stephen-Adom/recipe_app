@@ -5,7 +5,7 @@ def data
                           confirmed_at: DateTime.now)
   @food_one = Food.create(name: 'apple', measurement_unit: 'kilogram', price: 12, quantity: 10,
                           user_id: @user_one.id)
-  @food_two = Food.create(name: 'orange', measurement_unit: 'kilogram', price: 10, quantity: 50,
+  @food_two = Food.create(name: 'orange', measurement_unit: 'kilogram', price: 10, quantity: 5,
                           user_id: @user_one.id)
   @food_three = Food.create(name: 'rice', measurement_unit: 'kilogram', price: 16, quantity: 20,
                             user_id: @user_one.id)
@@ -16,14 +16,15 @@ def data
                           user_id: @user_two.id)
   @recipe_one = Recipe.create(name: 'paratha', preparation_time: 2, cooking_time: 2, description: 'anything we want',
                               user_id: @user_one.id)
-  @recipe_one = Recipe.create(name: 'juice', preparation_time: 2, cooking_time: 2, description: 'anything we want',
+  @recipe_two = Recipe.create(name: 'juice', preparation_time: 2, cooking_time: 2, description: 'anything we want', public: true,
                               user_id: @user_one.id)
-  @recipe_one = Recipe.create(name: 'Dosa', preparation_time: 2, cooking_time: 2, description: 'anything we want',
+  @recipe_three = Recipe.create(name: 'Dosa', preparation_time: 2, cooking_time: 2, description: 'anything we want', public: true,
                               user_id: @user_one.id)
-  @recipe_one = Recipe.create(name: 'Icecream', preparation_time: 2, cooking_time: 2,
+  @recipe_four = Recipe.create(name: 'Icecream', preparation_time: 2, cooking_time: 2, public: true,
                               description: 'anything we want', user_id: @user_two.id)
-  @recipe_one = Recipe.create(name: 'soda', preparation_time: 2, cooking_time: 2, description: 'anything we want',
+  @recipe_five = Recipe.create(name: 'soda', preparation_time: 2, cooking_time: 2, description: 'anything we want',
                               user_id: @user_two.id)
-  @recipe_one = Recipe.create(name: 'roka', preparation_time: 2, cooking_time: 2, description: 'anything we want',
+  @recipe_six = Recipe.create(name: 'roka', preparation_time: 2, cooking_time: 2, description: 'anything we want',
                               user_id: @user_two.id)
+  @recipe_food = RecipeFood.create(food_id: @food_two.id, recipe_id: @recipe_two.id, quantity: 15)
 end
