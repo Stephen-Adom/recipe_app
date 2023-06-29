@@ -1,6 +1,6 @@
 <tr id="<%= dom_id(recipe_food) %>">
     <th scope="row"><%= recipe_food.food.name %> </th>
-    <td><%= recipe_food.quantity %></td>
+    <td><%= "#{recipe_food.quantity} #{recipe_food.food.measurement_unit}" %></td>
     <td><%= recipe_food.food.price %></td>
     <td class="d-flex align-items-center gap-2"> 
         <%  if can? :update, recipe %>
